@@ -65,7 +65,7 @@ function saveFicha() {
     
   
     // Envia os dados para o backend via POST
-    fetch('http://127.0.0.1:5000/save', {
+    fetch('https://d5ae-177-115-19-133.ngrok-free.app/save', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
