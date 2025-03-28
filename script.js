@@ -100,4 +100,5 @@ function saveFicha() {
         console.error('Erro:', error);
         alert('Erro ao salvar a ficha.');
       });
+  window.location.href = "https://carlos06dev.github.io/pag_final/";
   }
