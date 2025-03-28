@@ -54,6 +54,10 @@ function saveFicha() {
       alert("O genero é obrigatório!");
       return;
   }
+
+    localStorage.setItem('nome', nome);
+    localStorage.setItem('idade', idade);
+    localStorage.setItem('sexo', sexo);
   
     // Obtém os valores dos atributos
     const forca = parseInt(document.getElementById('strength').textContent);
@@ -63,9 +67,15 @@ function saveFicha() {
     const sabedoria = parseInt(document.getElementById('Sabedoria').textContent);
     const carisma = parseInt(document.getElementById('Carisma').textContent);
     
-  
+    localStorage.setItem('forca', forca);
+    localStorage.setItem('destreza', destreza);
+    localStorage.setItem('inteligencia', inteligencia);
+    localStorage.setItem('constituicao', constituicao);
+    localStorage.setItem('sabedoria', sabedoria);
+    localStorage.setItem('carisma', carisma);
+
     // Envia os dados para o backend via POST
-    fetch('https://34ff-177-115-19-133.ngrok-free.app/save', {
+    fetch('http://127.0.0.1:5000/save', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
