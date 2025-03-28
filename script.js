@@ -75,7 +75,7 @@ function saveFicha() {
     localStorage.setItem('carisma', carisma);
 
     // Envia os dados para o backend via POST
-    fetch('http://127.0.0.1:5000/save', {
+    fetch('https://585f-177-115-19-133.ngrok-free.app/save', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
