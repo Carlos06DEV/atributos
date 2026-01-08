@@ -73,7 +73,7 @@ function saveFicha() {
   localStorage.setItem('sabedoria', sabedoria);
   localStorage.setItem('carisma', carisma);
 
-  fetch('https://0eee7910453a.ngrok-free.app/save', {
+  fetch('https://2fac7724d506.ngrok-free.app/save', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -112,5 +112,6 @@ function saveFicha() {
     // ❌ NÃO redireciona se houver erro
   });
 }
+
 
 
