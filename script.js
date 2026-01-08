@@ -75,41 +75,41 @@ function saveFicha() {
     localStorage.setItem('carisma', carisma);
 
     // Envia os dados para o backend via POST
-    fetch('https://7f6c52d9c45c.ngrok-free.app/save', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        nome: nome,
-        classe: classe,
-        raca: raca,
-        sexo: sexo,
-        idade: idade,
-        forca: forca,
-        destreza: destreza,
-        inteligencia: inteligencia,
-        constituicao: constituicao,
-        sabedoria: sabedoria,
-        carisma: carisma,
-        magia: magia,
-        pericias: pericias,
-      }),
-      mode: 'cors'
+  fetch('https://7f6c52d9c45c.ngrok-free.app/save', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      nome: nome,
+      classe: classe,
+      raca: raca,
+      sexo: sexo,
+      idade: idade,
+      forca: forca,
+      destreza: destreza,
+      inteligencia: inteligencia,
+      constituicao: constituicao,
+      sabedoria: sabedoria,
+      carisma: carisma,
+      magia: magia,
+      pericias: pericias,
+    }),
+    mode: 'cors'
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Erro ao salvar a ficha: ${response.status}`);
+      }
+      return response.json();
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Erro ao salvar a ficha: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        alert(data.message || 'Erro ao salvar a ficha.');
-      })
-      .catch(error => {
-        console.error('Erro:', error);
-        alert('Erro ao salvar a ficha.');
-      });
-  window.location.href = "https://carlos06dev.github.io/pag_final/";
-  }
-
+    .then(data => {
+      alert(data.message || 'Ficha salva com sucesso!');
+      // ✅ Só redireciona AGORA, depois de tudo certo
+      window.location.href = "https://carlos06dev.github.io/pag_final/";
+    })
+    .catch(error => {
+      console.error('Erro:', error);
+      alert('Erro ao salvar a ficha.');
+      // ❌ Não redireciona se der erro
+    });
