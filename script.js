@@ -75,7 +75,7 @@ function saveFicha() {
     localStorage.setItem('carisma', carisma);
 
     // Envia os dados para o backend via POST
-    fetch('https://1ec0-177-115-20-107.ngrok-free.app/save', {
+    fetch('https://7f6c52d9c45c.ngrok-free.app/save', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -112,3 +112,4 @@ function saveFicha() {
       });
   window.location.href = "https://carlos06dev.github.io/pag_final/";
   }
+
