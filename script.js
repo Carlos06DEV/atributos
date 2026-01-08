@@ -1,3 +1,37 @@
+// script.js
+
+// Variável para armazenar os pontos disponíveis
+let availablePoints = 7;
+
+// Função para atualizar os pontos disponíveis na tela
+function updateAvailablePoints() {
+  document.getElementById('available-points').textContent = availablePoints;
+}
+
+// Função para alterar os pontos de um atributo
+function changePoints(attributeId, amount) {
+  const attributeElement = document.getElementById(attributeId);
+  let currentPoints = parseInt(attributeElement.textContent);
+
+  // Verifica se há pontos suficientes para adicionar/remover
+  if (amount > 0 && availablePoints <= 0) {
+    alert('Você não tem mais pontos disponíveis!');
+    return;
+  }
+  if (amount < 0 && currentPoints <= 0) {
+    alert('Você não pode reduzir este atributo abaixo de zero!');
+    return;
+  }
+
+  // Atualiza os pontos do atributo e os pontos disponíveis
+  attributeElement.textContent = currentPoints + amount;
+  availablePoints -= amount;
+  updateAvailablePoints();
+}
+
+// Inicializa os pontos disponíveis na tela
+updateAvailablePoints();
+
 function saveFicha() {
   let classe = localStorage.getItem('classe');
   let raca = localStorage.getItem('raca');
@@ -82,3 +116,4 @@ function saveFicha() {
     alert('Erro ao salvar a ficha.');
   });
 }
+
